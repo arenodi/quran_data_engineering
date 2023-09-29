@@ -17,7 +17,7 @@ def generate_raw_file(identifier, edition_name):
     # file name based on the value of the arguments
     filename = f"raw_{edition_name}_{identifier}.json"
     # filepath for storing the raw data json file
-    filepath = os.getcwd() + "\\raw_data"
+    filepath = os.getcwd() + "/raw_data"
     if not os.path.exists(filepath):
         os.makedirs(filepath)
     # Writing json file
@@ -25,14 +25,14 @@ def generate_raw_file(identifier, edition_name):
         # serializing object as json
         dump(quran_data_handler.get_edition(identifier), outfile)
 
-    return filepath + "\\" + filename
+    return filepath + "/" + filename
 
 
 def generate_parsed_file(identifier, edition_name, edition_content):
     # file name based on the value of the arguments
     filename = f"parsed_{edition_name}_{identifier}.json"
     # filepath for storing the parsed quran data to new json file
-    filepath = os.getcwd() + "\\parsed_data"
+    filepath = os.getcwd() + "/parsed_data"
     if not os.path.exists(filepath):
         os.makedirs(filepath)
 
