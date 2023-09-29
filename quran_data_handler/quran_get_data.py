@@ -21,9 +21,8 @@ def get_data(url):
         print(error)
         # terminate the script
         exit()
-    finally:
-        # return the data array containing the edition types.
-        return response.json()["data"]
+    # returns the data attr from the response
+    return response.json()["data"]
 
 
 # function to get identifiers based on editions type list >>> returns a dictionary
