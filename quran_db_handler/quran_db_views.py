@@ -19,7 +19,7 @@ def create_views(database_name, cursor):
             try:
                 # Create editions table
                 cursor.execute(
-                    f"""CREATE OR REPLACE VIEW v_edition{str(edition_id)} AS SELECT
+                    f"""CREATE OR REPLACE VIEW v_edId_{str(edition_id)} AS SELECT
                     jt1.juz_number, jt2.ayah_number, jt2.ayah_text FROM editions edition,
                     json_table(edition, '$.content[*]' columns(
                         juz_number  varchar(10) path '$.number',
@@ -33,9 +33,8 @@ def create_views(database_name, cursor):
                 )
             except mariadb.Error as e:
                 print(f"Error in create editions: {e}")
-                raise TypeError(
-                    f"Error in the CREATE VIEW v_editions{edition_id} step."
-                )
+                raise TypeError(f"Error in the CREATE VIEW v_edId_{edition_id} step.")
+            print(f"View for edition_id")
     # handling error
     except (mariadb.Error, TypeError) as error:
         print(f"Error: {error}")
