@@ -1,12 +1,12 @@
-# Quran Data
+# Quran Data Engineering
 
-This is en ETL data piping application.
+This is an ETL data piping application.
 
 
 
 ### Quick Overview
 
-It works by retrieving data using the [Quran API](https://alquran.cloud/api) and transforming this data so that it can load into database, and also within the database generate views.
+It works by retrieving data using the [Quran API](https://alquran.cloud/api) and transforming this data so that it can load into database, and also generate views within the database.
 
 
 
@@ -59,5 +59,15 @@ The following technologies are used in this project:
 
 
 ## Documentation
+
+If you are interested in knowing this application was built:
+
+- [Making Of]()
+
+To know how the code works:
+
+- [Docs]()
+
+
 
 
