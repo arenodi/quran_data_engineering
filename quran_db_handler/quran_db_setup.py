@@ -66,3 +66,33 @@ def db_setup(database_name, cursor):
         DID_WORK = False
     # return boolean value
     return DID_WORK
+
+
+# function to setup json formatted db
+def db_setup_json(database_name, cursor):
+    # Flag to return success of database setup
+    DID_WORK = True
+    # try-except block
+    try:
+        # create the database
+        cursor.execute(f"CREATE DATABASE IF NOT EXISTS {database_name};")
+        # Select database
+        cursor.execute(f"USE {database_name};")
+        try:
+            # Create editions table
+            cursor.execute(
+                """CREATE TABLE editions(edition_id int not null,
+                        edition LONGTEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_bin
+                        CHECK (JSON_VALID(`edition`)),
+                        primary key(edition_id));"""
+            )
+        except mariadb.Error as e:
+            print(f"Error in create editions: {e}")
+            raise TypeError("Error in the CREATE TABLE editions() step.")
+    # handling error
+    except (mariadb.Error, TypeError) as error:
+        print(f"Error: {error}")
+        # Flag false
+        DID_WORK = False
+    # return boolean value
+    return DID_WORK

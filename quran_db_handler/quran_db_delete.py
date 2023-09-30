@@ -38,6 +38,25 @@ def db_delete(database_name, cursor):
     return DID_WORK
 
 
+# function to setup the database
+def db_delete_json(database_name, cursor):
+    # Flag to return success of database setup
+    DID_WORK = True
+    try:
+        # Select database
+        cursor.execute(f"USE {database_name};")
+        # deletes editions table
+        cursor.execute("DROP TABLE IF EXISTS editions;")
+        # deletes editions table
+        cursor.execute(f"DROP DATABASE IF EXISTS {database_name};")
+
+    except mariadb.Error as e:
+        print(f"Error: {e}")
+        DID_WORK = False
+
+    return DID_WORK
+
+
 # function to truncate a table
 def truncate_table(table_name, cursor):
     # Flag to return success of operation
