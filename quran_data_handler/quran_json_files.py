@@ -23,7 +23,7 @@ def generate_raw_file(identifier, edition_name):
     # Writing json file
     with open(f"{filepath}/{filename}", "w") as outfile:
         # serializing object as json
-        dump(quran_data_handler.get_edition(identifier), outfile)
+        dump(quran_data_handler.get_edition(identifier), outfile, indent=2)
 
     return filepath + "/" + filename
 
@@ -39,4 +39,4 @@ def generate_parsed_file(identifier, edition_name, edition_content):
     # Writing json file
     with open(f"{filepath}/{filename}", "w") as outfile:
         # serializing object as json
-        dump(edition_content, outfile)
+        dump(edition_content, outfile, indent=2)
