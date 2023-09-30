@@ -60,14 +60,12 @@ The following technologies are used in this project:
 
 ## Documentation
 
-If you are interested in knowing this application was built:
+If you are interested in knowing how this application was built:
 
 - [Making Of]()
 
 To know how the code works:
 
 - [Docs]()
-
-
-
-
+  
+  
