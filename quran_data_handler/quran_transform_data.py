@@ -45,6 +45,8 @@ def quaran_transform(filepath):
                     "type": "ayah",
                     "number": ayah["number"],
                     "text": ayah["text"],
+                    "inJuz": ayah["juz"],
+                    "inSurah": surah["number"],
                 }
                 # get juz number from the ayah
                 juz = ayah["juz"]
@@ -52,7 +54,12 @@ def quaran_transform(filepath):
                 # then it adds an new dict for holding the juz content
                 if len(transformed_quran["content"]) < juz:
                     transformed_quran["content"].append(
-                        {"type": "juz", "number": juz, "content": []}
+                        {
+                            "type": "juz",
+                            "edId": transformed_quran["identifier"],
+                            "number": juz,
+                            "content": [],
+                        }
                     )
                 # check if the context juz is the same of the ayah
                 if context_juz == juz:
