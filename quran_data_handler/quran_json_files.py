@@ -39,4 +39,4 @@ def generate_parsed_file(identifier, edition_name, edition_content):
     # Writing json file
     with open(f"{filepath}/{filename}", "w") as outfile:
         # serializing object as json
-        dump(edition_content, outfile, indent=2)
+        dump(edition_content, outfile)
