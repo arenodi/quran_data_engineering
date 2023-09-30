@@ -4,6 +4,9 @@
 ## import load from json lib to  open json file to python obj
 from json import load
 
+# import copy module for dealing with dictionaries
+from copy import deepcopy
+
 
 # function to transform the quran data
 def quaran_transform(filepath):
@@ -59,7 +62,7 @@ def quaran_transform(filepath):
                 else:
                     # the surah_data dict will be added to the context juz
                     transformed_quran["content"][context_juz - 1]["content"].append(
-                        surah_data
+                        deepcopy(surah_data)
                     )
                     # the surah_data[ayahs] attr will be reseted
                     surah_data["ayahs"] = []
@@ -69,7 +72,9 @@ def quaran_transform(filepath):
                     context_juz = juz
 
             # append surah data to context juz before moving on to next surah
-            transformed_quran["content"][context_juz - 1]["content"].append(surah_data)
+            transformed_quran["content"][context_juz - 1]["content"].append(
+                deepcopy(surah_data)
+            )
 
     except:
         print("error")
