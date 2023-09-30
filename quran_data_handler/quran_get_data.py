@@ -21,6 +21,7 @@ def get_data(url):
         print(error)
         # terminate the script
         exit()
+    print(f"Data retrieve from -> '{url}'.")
     # returns the data attr from the response
     return response.json()["data"]
 
@@ -67,4 +68,5 @@ def get_edition(identifier):
     edition_base_url = "http://api.alquran.cloud/v1/quran/"
     # dictionary holding the full edition content
     edition_content = get_data(edition_base_url + identifier)
+    print(f"Fetched edition: {identifier}")
     return edition_content
