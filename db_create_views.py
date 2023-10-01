@@ -1,12 +1,6 @@
 # Script to insert data to db
 # Author: arenodi
 
-# Import OS for handling the Json files
-import os
-
-# import load from json lib to  open json file to python obj
-from json import load
-
 # Module for handling the quran db
 import quran_db_handler
 
